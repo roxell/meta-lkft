@@ -7,15 +7,13 @@ SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz"
 # Some patches may have been submitted to upstream
 SRC_URI += "\
     file://0001-selftests-lib-allow-to-override-CC-in-the-top-level-Makefile.patch \
-    file://0001-selftests-gpio-fix-build-error-next-20180906.patch \
-    file://0001-selftests-gpio-use-pkg-config-to-determine-libmount-.patch \
     file://0001-selftests-net-use-LDLIBS-instead-of-LDFLAGS-next-20180416.patch \
     file://0002-selftests-seccomp-use-LDLIBS-instead-of-LDFLAGS.patch \
     file://0003-selftests-timers-use-LDLIBS-instead-of-LDFLAGS.patch \
 "
 
-SRC_URI[md5sum] = "740a90cf810c2105df8ee12e5d0bb900"
-SRC_URI[sha256sum] = "0c68f5655528aed4f99dae71a5b259edc93239fa899e2df79c055275c21749a1"
+SRC_URI[md5sum] = "d39dd4ba2d5861c54b90d49be19eaf31"
+SRC_URI[sha256sum] = "ad0823183522e743972382df0aa08fb5ae3077f662b125f1e599b0b2aaa12438"
 
 S = "${WORKDIR}/linux-${PV}"
 
