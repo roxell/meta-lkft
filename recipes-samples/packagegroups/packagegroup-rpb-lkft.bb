@@ -10,6 +10,7 @@ RDEPENDS_packagegroup-rpb-lkft = "\
     kernel-selftests \
     kselftests-mainline \
     kselftests-next \
+    libgpiod \
     ${@bb.utils.contains("TUNE_ARCH", "arm", "", "numactl", d)} \
     tzdata \
     xz \
