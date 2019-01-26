@@ -12,3 +12,6 @@ CORE_IMAGE_BASE_INSTALL += " \
     packagegroup-rpb-tests \
     packagegroup-rpb-lkft \
     "
+IMAGE_INSTALL_remove = " \
+    stress-ng \
+    "
