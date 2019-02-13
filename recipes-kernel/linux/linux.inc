@@ -10,14 +10,14 @@ inherit kernel siteinfo
 
 # Set the verbosity of kernel messages during runtime
 # You can define CMDLINE_DEBUG in your local.conf or distro.conf to override this behaviour  
-CMDLINE_DEBUG ?= '${@base_conditional("DISTRO_TYPE", "release", "quiet", "debug", d)}'
+CMDLINE_DEBUG ?= '${@oe.utils.conditional("DISTRO_TYPE", "release", "quiet", "debug", d)}'
 CMDLINE_append = " ${CMDLINE_DEBUG} "
 
 # Kernel bootlogo is distro-specific (default is OE logo).
 # Logo resolution (qvga, vga, ...) is machine-specific.
 LOGO_SIZE ?= "."
 
-ALLOW_EMPTY_kernel-devicetree = "1"
+ALLOW_EMPTY_${KERNEL_PACKAGE_NAME}-devicetree = "1"
 
 python __anonymous () {
 
@@ -208,12 +208,12 @@ do_install_append() {
 	rm -f ${D}${KERNEL_SRC_PATH}/arch/*/vdso/vdso*.so
 }
 
-PACKAGES =+ "kernel-devicetree-overlays"
-FILES_kernel-devicetree-overlays = "/lib/firmware/*.dtbo /lib/firmware/*.dts"
-FILES_kernel-devicetree += "/boot/*.dtb"
+PACKAGES =+ "${KERNEL_PACKAGE_NAME}-devicetree-overlays"
+FILES_${KERNEL_PACKAGE_NAME}-devicetree-overlays = "/lib/firmware/*.dtbo /lib/firmware/*.dts"
+FILES_${KERNEL_PACKAGE_NAME}-devicetree += "/boot/*.dtb"
 
-RDEPENDS_kernel-image_append = " kernel-devicetree"
-RRECOMMENDS_kernel-image_append = " kernel-devicetree-overlays"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-image_append = " ${KERNEL_PACKAGE_NAME}-devicetree"
+RRECOMMENDS_${KERNEL_PACKAGE_NAME}-image_append = " ${KERNEL_PACKAGE_NAME}-devicetree-overlays"
 
 # Automatically depend on lzop/lz4-native if CONFIG_KERNEL_LZO/LZ4 is enabled
 python () {
