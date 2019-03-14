@@ -28,5 +28,3 @@ KERNEL_EXTRA_ARGS_stih410-b2260 += "LOADADDR=${ST_KERNEL_LOADADDR}"
 
 SRC_URI_append = " file://virtio.config;subdir=git/kernel/configs"
 KERNEL_CONFIG_FRAGMENTS_append = " ${S}/kernel/configs/virtio.config"
-
-QCOM_BOOTIMG_BUNDLE_DT_dragonboard-410c = "1"
