@@ -1,0 +1,1 @@
+PACKAGECONFIG = "tools tests"
